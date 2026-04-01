@@ -28,11 +28,14 @@ resource "render_web_service" "flask_app" {
       tag       = var.image_tag
     }
   }
-env_vars = {
-  ENV = {
-    value = "production"
+
+  env_vars = {
+    ENV = {
+      value = "production"
+    }
   }
 }
+
 resource "render_web_service" "adminer" {
   name   = "adminer-${var.github_actor}"
   plan   = "free"
@@ -50,6 +53,4 @@ resource "render_web_service" "adminer" {
       value = "dpg-d76i73mdqaus73c44in0-a"
     }
   }
-}
-
 }
